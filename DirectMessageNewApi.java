@@ -116,7 +116,8 @@ public class DirectMessageNewApi {
 	   }  
 	
 	private void constructBodyData (String message, String recipient_id) {
-		body_data = "{\"event\": {\"type\": \"message_create\", \"message_create\": {\"target\": {\"recipient_id\": \""+recipient_id +"\"}, \"message_data\": {\"text\": \""+ message +"\"}}}}";
+		String message_apostrope_handled = message.replaceAll("’","'");
+		body_data = "{\"event\": {\"type\": \"message_create\", \"message_create\": {\"target\": {\"recipient_id\": \""+recipient_id +"\"}, \"message_data\": {\"text\": \""+ message_apostrope_handled +"\"}}}}";
 	}
 
 	public void sendPost(String messageToSend, String recipient_id) throws Exception {
